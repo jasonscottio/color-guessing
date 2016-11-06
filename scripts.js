@@ -1,6 +1,5 @@
 var numSquares = 6;
 var colors = generateRandomColors(numSquares);
-
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
@@ -9,20 +8,13 @@ var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
 var modeButtons = document.getElementsByClassName("mode");
 
-for (var i = 0; i < modeButtons.length; i++) {
-    modeButtons[i].addEventListener("click", function () {
-        modeButtons[0].classList.remove("selected");
-        modeButtons[1].classList.remove("selected");
-        this.classList.add("selected");
-        if (this.textContent === "Easy") {
-            numSquares = 3;
-        } else {
-            numSquares = 6;
-        }
 
-        reset();
-    });
-}
+colorDisplay.textContent = pickedColor;
+
+setBackgrounds();
+squaresEvents();
+buttonEvents();
+
 
 function reset() {
     colors = generateRandomColors(numSquares);
@@ -34,21 +26,25 @@ function reset() {
     setBackgrounds();
 }
 
-resetButton.addEventListener("click", function () {
-    colors = generateRandomColors(6);
-    pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
-    this.textContent = "New Colors";
-    h1.style.background = "steelblue";
-    messageDisplay.textContent = "";
-    setBackgrounds();
-});
+function buttonEvents() {
+    resetButton.addEventListener("click", function () {
+        reset();
+    });
+    for (var i = 0; i < modeButtons.length; i++) {
+        modeButtons[i].addEventListener("click", function () {
+            modeButtons[0].classList.remove("selected");
+            modeButtons[1].classList.remove("selected");
+            this.classList.add("selected");
+            if (this.textContent === "Easy") {
+                numSquares = 3;
+            } else {
+                numSquares = 6;
+            }
 
-colorDisplay.textContent = pickedColor;
-
-setBackgrounds();
-squaresEvents();
-
+            reset();
+        });
+    }
+}
 
 function setBackgrounds() {
     for (var i = 0; i < squares.length; i++) {
