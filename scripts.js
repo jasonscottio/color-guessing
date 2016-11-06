@@ -1,7 +1,7 @@
 var numSquares = 6;
-var colors = generateRandomColors(numSquares);
+var colors = [];
 var squares = document.querySelectorAll(".square");
-var pickedColor = pickColor();
+var pickedColor;
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
 var h1 = document.querySelector("h1");
@@ -9,12 +9,18 @@ var resetButton = document.querySelector("#reset");
 var modeButtons = document.getElementsByClassName("mode");
 
 
-colorDisplay.textContent = pickedColor;
+init();
 
-setBackgrounds();
-squaresEvents();
-buttonEvents();
 
+function init() {
+    colors = generateRandomColors(numSquares);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    setBackgrounds();
+    squaresEvents();
+    buttonEvents();
+
+}
 
 function reset() {
     colors = generateRandomColors(numSquares);
