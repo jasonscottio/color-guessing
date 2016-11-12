@@ -1,3 +1,4 @@
+
 var numSquares = 6;
 var colors = [];
 var squares = document.querySelectorAll(".square");
@@ -13,21 +14,45 @@ init();
 
 
 function init() {
+    //generates an array of colors
     colors = generateRandomColors(numSquares);
+    //picks the winning color
     pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
+    //displays the hint RGB value
+    colorDisplay.textContent = pickedColor + " ?";
     setBackgrounds();
     squaresEvents();
     buttonEvents();
 
 }
 
+function generateRandomColors(num) {
+    var arr = [];
+    for (var i = 0; i < num; i++) {
+        arr.push(randomColor());
+    }
+    return arr;
+}
+
+function randomColor() {
+    //sets random RGB Values and returns a string
+    var r = Math.floor(Math.random() * 256);
+    var g = Math.floor(Math.random() * 256);
+    var b = Math.floor(Math.random() * 256);
+    return ("rgb(" + r + ", " + g + ", " + b + ")");
+}
+
+function pickColor() {
+    var random = Math.floor(Math.random() * colors.length);
+    return colors[random];
+}
+
 function reset() {
     colors = generateRandomColors(numSquares);
     pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
+    colorDisplay.textContent = pickedColor + " ?";
     resetButton.textContent = "New Colors";
-    h1.style.background = "steelblue";
+    h1.style.background = "#61247D";
     messageDisplay.textContent = "";
     setBackgrounds();
 }
@@ -75,7 +100,7 @@ function squaresEvents() {
                 h1.style.background = clickedColor;
             } else {
                 messageDisplay.textContent = "Try Again";
-                this.style.background = "#232323";
+                this.style.background = "#2F2C30";
             }
         });
     }
@@ -87,22 +112,5 @@ function changeColors(color) {
     }
 }
 
-function pickColor() {
-    var random = Math.floor(Math.random() * colors.length);
-    return colors[random];
-}
 
-function generateRandomColors(num) {
-    var arr = [];
-    for (var i = 0; i < num; i++) {
-        arr.push(randomColor());
-    }
-    return arr;
-}
 
-function randomColor() {
-    var r = Math.floor(Math.random() * 256);
-    var g = Math.floor(Math.random() * 256);
-    var b = Math.floor(Math.random() * 256);
-    return ("rgb(" + r + ", " + g + ", " + b + ")");
-}

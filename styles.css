@@ -1,7 +1,7 @@
 body {
     margin: 0;
-    background-color: #232323;
-    font-family: "Montserrat", "Avenir";
+    background-color: #2F2C30;
+    font-family: "Lato", "Avenir";
 }
 
 .square {
@@ -10,7 +10,7 @@ body {
     padding-bottom: 30%;
     float: left;
     margin: 1.66%;
-    border-radius: 15%;
+    border-radius: 25%;
     transition: background .4s;
     -webkit-transition: background .4s;
     -moz-transition: background .4s;
@@ -18,18 +18,18 @@ body {
 
 #container {
     max-width: 600px;
-    margin: 20px auto;
+    margin: 40px auto;
 }
 
 h1 {
     margin: 0;
     text-align: center;
-    line-height: 1.1;
-    background-color: steelblue;
-    color: white;
+    line-height: 1.4;
+    background-color: #61247D;
+    color: #DDD2ED;
     font-weight: normal;
     text-transform: uppercase;
-    padding: 20px 0;
+    padding: 30px 0;
 }
 
 #colorDisplay {
@@ -37,14 +37,15 @@ h1 {
 }
 
 #stripe {
-    background-color: white;
+    background-color: #DDD2ED;
     height: 30px;
     text-align: center;
+    text-transform: uppercase;
     color: black;
 }
 
 .selected {
-    background-color: steelblue;
+    background-color: #61247D;
     color: white;
 }
 
@@ -54,8 +55,9 @@ button {
     text-transform: uppercase;
     height: 100%;
     font-weight: 700;
-    color: steelblue;
-    letter-spacing: 1px;
+    color: #4B1067;
+    letter-spacing: 2px;
+    font-family: inherit;
     font-size: inherit;
     transition: all .3s;
     -webkit-transition: all .3s;
@@ -65,7 +67,7 @@ button {
 
 button:hover {
     color: white;
-    background: steelblue;
+    background: #4B1067;
 }
 
 #message {
